@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: cities-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    org.springframework.cloud.circuitbreaker: DEBUG
+    io.github.resilience4j: TRACE
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      hotels-service:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 10

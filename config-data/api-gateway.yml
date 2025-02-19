@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+server:
+  port: 443
